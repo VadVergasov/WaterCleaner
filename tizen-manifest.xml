@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<manifest xmlns="http://tizen.org/ns/packages" api-version="2.3.2" package="com.vadvergasov.watercleaner" version="1.1.0">
+<manifest xmlns="http://tizen.org/ns/packages" api-version="2.3.2" package="com.vadvergasov.watercleaner" version="1.2.0">
     <author email="vadim.vergasov2003@gmail.com">VadVergasov</author>
     <description>This app will help you to clean the watches after swimming.</description>
     <profile name="wearable"/>
     <ui-application appid="com.vadvergasov.watercleaner" exec="watercleaner" multiple="false" nodisplay="false" taskmanage="true" type="capp">
         <label>Water cleaner</label>
+        <label xml:lang="en">Water cleaner</label>
+        <label xml:lang="ru-ru">Очиститель воды</label>
+        <label xml:lang="by-by">Ачышчальнік вады</label>
         <icon>Logo.png</icon>
     </ui-application>
     <privileges>
@@ -14,6 +17,7 @@
     <feature name="http://tizen.org/feature/platform.core.cpu.arch.x86">true</feature>
     <feature name="http://tizen.org/feature/platform.core.cpu.arch.armv7">true</feature>
     <feature name="http://tizen.org/feature/screen.size.normal.320.320">true</feature>
+    <feature name="http://tizen.org/feature/screen.shape.circle">true</feature>
     <feature name="http://tizen.org/feature/screen.size.normal.360.360">true</feature>
     <feature name="http://tizen.org/feature/screen.size.normal.320.480">true</feature>
     <feature name="http://tizen.org/feature/screen.size.normal.360.480">true</feature>

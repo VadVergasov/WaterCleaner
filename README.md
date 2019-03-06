@@ -1,0 +1,1 @@
+This is app for Tizen platform. First app for Tizen by VadVergasov. Do not use this code for your benefits.

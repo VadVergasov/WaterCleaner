@@ -10,17 +10,12 @@ typedef struct appdata {
 static void device_vibrate(int duration, int feedback){
 	haptic_device_h haptic_handle;
 	haptic_effect_h effect_handle;
-
 	if(device_haptic_open(0, &haptic_handle) == DEVICE_ERROR_NONE) {
-
 		if(device_haptic_vibrate(haptic_handle, duration, feedback, &effect_handle) == DEVICE_ERROR_NONE){
 
 		}else{
 
 		}
-//		if(device_haptic_close(haptic_handle) == DEVICE_ERROR_NONE) {
-//
-//		}
 	}else{
 
 	}
@@ -76,15 +71,12 @@ static void create_base_gui(appdata_s *ad) {
 	elm_grid_pack(ad->grid, ad->button, 40, 90, 20, 10);
 	evas_object_smart_callback_add(ad->button, "clicked", clicked_cb, ad);
 	evas_object_show(ad->button);
-
 	evas_object_show(ad->win);
 }
 
 static bool app_create(void *data){
 	appdata_s *ad = data;
-
 	create_base_gui(ad);
-
 	return true;
 }
 
@@ -118,11 +110,8 @@ static void ui_app_lang_changed(app_event_info_h event_info, void *user_data){
 }
 
 static void ui_app_orient_changed(app_event_info_h event_info, void *user_data){
-
 	/*appdata_s *ad = {0,};
-
 	create_base_gui(ad);*/
-
 	return;
 }
 

@@ -4,3 +4,4 @@ SA_Report
 Coverage_Report
 .sign
 reportASAN.txt
+.package-stamp
