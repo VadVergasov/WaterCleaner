@@ -1,15 +1,18 @@
 #ifndef __watercleaner_H__
 #define __watercleaner_H__
 
-#include <app.h>
-#include <Elementary.h>
-#include <system_settings.h>
-#include <efl_extension.h>
-#include <device/haptic.h>
 #include <Ecore.h>
+#include <Elementary.h>
+#include <app.h>
+#include <device/haptic.h>
+#include <dlog.h>
+#include <efl_extension.h>
+#include <stdio.h>
+#include <system_settings.h>
+#include <time.h>
 
-#ifdef  LOG_TAG
-#undef  LOG_TAG
+#ifdef LOG_TAG
+#undef LOG_TAG
 #endif
 #define LOG_TAG "watercleaner"
 

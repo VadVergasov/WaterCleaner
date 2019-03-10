@@ -391,10 +391,10 @@
 									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/../wearable-2.3.2-device.core/usr/include/samsung_extension&quot;"/>
 								</option>
 								<option id="sbi.gnu.c.compiler.option.frameworks_cflags.core.987018134" name="Tizen-Frameworks-Other-Cflags" superClass="sbi.gnu.c.compiler.option.frameworks_cflags.core" valueType="stringList">
-									<listOptionValue builtIn="false" value="${TC_COMPILER_MISC}"/>
-									<listOptionValue builtIn="false" value="${RS_COMPILER_MISC}"/>
+									<listOptionValue builtIn="false" value="$(TC_COMPILER_MISC)"/>
+									<listOptionValue builtIn="false" value="$(RS_COMPILER_MISC)"/>
 									<listOptionValue builtIn="false" value=" -fPIE"/>
-									<listOptionValue builtIn="false" value="--sysroot=&quot;${SBI_SYSROOT}&quot;"/>
+									<listOptionValue builtIn="false" value="--sysroot=&quot;$(SBI_SYSROOT)&quot;"/>
 									<listOptionValue builtIn="false" value="-mthumb"/>
 								</option>
 								<option id="gnu.c.compiler.option.include.paths.1001207662" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
@@ -412,14 +412,15 @@
 								<option defaultValue="false" id="sbi.gnu.cpp.linker.option.shared_flag.core.1160151679" name="Linker.Shared" superClass="sbi.gnu.cpp.linker.option.shared_flag.core" valueType="boolean"/>
 								<option defaultValue="false" id="sbi.gnu.cpp.linker.option.noundefined.core.1037819858" name="Report unresolved symbol references (-Wl,--no-undefined)" superClass="sbi.gnu.cpp.linker.option.noundefined.core" valueType="boolean"/>
 								<option id="sbi.gnu.cpp.linker.option.frameworks_lflags.core.631353639" name="Tizen-Frameworks-Other-Lflags" superClass="sbi.gnu.cpp.linker.option.frameworks_lflags.core" valueType="stringList">
-									<listOptionValue builtIn="false" value="${TC_LINKER_MISC}"/>
-									<listOptionValue builtIn="false" value="${RS_LINKER_MISC}"/>
+									<listOptionValue builtIn="false" value="$(TC_LINKER_MISC)"/>
+									<listOptionValue builtIn="false" value="$(RS_LINKER_MISC)"/>
 									<listOptionValue builtIn="false" value="-pie -lpthread "/>
-									<listOptionValue builtIn="false" value="--sysroot=&quot;${SBI_SYSROOT}&quot;"/>
-									<listOptionValue builtIn="false" value="-Xlinker --version-script=&quot;${PROJ_PATH}/.exportMap&quot;"/>
-									<listOptionValue builtIn="false" value="-L&quot;${SBI_SYSROOT}/usr/lib&quot;"/>
-									<listOptionValue builtIn="false" value="-L&quot;${SBI_SYSROOT}/../wearable-2.3.2-device.core/usr/lib&quot;"/>
+									<listOptionValue builtIn="false" value="--sysroot=&quot;$(SBI_SYSROOT)&quot;"/>
+									<listOptionValue builtIn="false" value="-Xlinker --version-script=&quot;$(PROJ_PATH)/.exportMap&quot;"/>
+									<listOptionValue builtIn="false" value="-L&quot;$(SBI_SYSROOT)/usr/lib&quot;"/>
+									<listOptionValue builtIn="false" value="-L&quot;$(SBI_SYSROOT)/../wearable-2.3.2-device.core/usr/lib&quot;"/>
 									<listOptionValue builtIn="false" value="$(RS_LIBRARIES)"/>
+									<listOptionValue builtIn="false" value="-Xlinker -rpath=&quot;//opt/usr/apps/com.vadvergasov.watercleaner/lib&quot;"/>
 								</option>
 								<option id="gnu.cpp.link.option.paths.1295144605" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/lib}&quot;"/>
