@@ -11,26 +11,13 @@ typedef struct appdata {
     Evas_Object *popup;
     Evas_Object *circle_spinner;
     Evas_Object *circle_progressbar;
-    Evas_Object *more_option
+    Evas_Object *more_option;
     Eext_Circle_Surface *surface;
 } appdata_s;
 
 appdata_s *ad;
 
-void delay(unsigned duration) {
-    time_t start = time(NULL), last;
-    last = start;
-    double end = duration;
-    time_t now;
-    do {
-        if (now - last >= (double)duration / 100.0) {
-            eext_circle_object_value_set(
-                ad->circle_progressbar,
-                eext_circle_object_value_get(ad->circle_progressbar) + 1);
-        }
-        now = time(NULL);
-    } while (difftime(now, start) < end);
-}
+Ecore_Timer *timer;
 
 static void _timeout_cb(void *data, Evas_Object *obj, void *event_info) {
     if (!obj) return;
@@ -56,6 +43,18 @@ void ready_label(void *data) {
     evas_object_show(ad->popup);
 }
 
+void change_progress(void *data) {
+    int value = eext_circle_object_value_get(ad->circle_progressbar);
+    if (value == 0) {
+        eext_circle_object_value_set(ad->circle_progressbar, 100);
+        ecore_timer_del(timer);
+        ready_label(NULL);
+        evas_object_hide(ad->circle_progressbar);
+        return;
+    }
+    eext_circle_object_value_set(ad->circle_progressbar, value - 1);
+}
+
 static void device_vibrate(int duration, int feedback) {
     haptic_device_h haptic_handle;
     haptic_effect_h effect_handle;
@@ -63,15 +62,8 @@ static void device_vibrate(int duration, int feedback) {
         if (device_haptic_vibrate(haptic_handle, duration, feedback,
                                   &effect_handle) == DEVICE_ERROR_NONE) {
             evas_object_show(ad->circle_progressbar);
-            evas_object_hide(ad->button);
-            evas_object_hide(ad->spinner);
-            evas_object_hide(ad->circle_spinner);
-            delay(duration / 1000);
-            ready_label(NULL);
-            evas_object_hide(ad->circle_progressbar);
-            evas_object_show(ad->button);
-            evas_object_show(ad->spinner);
-            evas_object_show(ad->circle_spinner);
+            timer = ecore_timer_add((double)duration / 100000.0,
+                                    change_progress, NULL);
         }
     }
 }
@@ -89,7 +81,6 @@ static void win_back_cb(void *data, Evas_Object *obj, void *event_info) {
 void clicked_cb(appdata_s *data, Evas_Object *obj, void *event_info) {
     double val = elm_spinner_value_get(ad->spinner);
     device_vibrate(val * 1000, 100);
-    ready_label(data);
 }
 
 static void create_base_gui(appdata_s *ad) {
@@ -126,13 +117,26 @@ static void create_base_gui(appdata_s *ad) {
     elm_object_text_set(ad->time, t);
     evas_object_show(ad->time);
 
+    // ad->more_option = eext_more_option_add(ad->grid);
+    // elm_grid_pack(ad->grid, ad->more_option, 30, 45, 40, 10);
+    // Evas_Object *about_img = NULL;
+    // char img[100];
+    // strcat(img, app_get_resource_path());
+    // strcat(img, "/images/about.png");
+    // Eext_Object_Item *about = eext_more_option_item_append(ad->more_option);
+    // eext_more_option_item_part_text_set(about, "selector,main_text",
+    // "About"); eext_more_option_item_part_text_set(about, "selector,sub_text",
+    // "Info"); about_img = elm_image_add(ad->more_option);
+    // eext_more_option_item_part_content_set(about, "item,icon", about_img);
+    // elm_image_file_set(about_img, img, NULL);
+    // evas_object_show(ad->more_option);
+
     ad->surface = eext_circle_surface_conformant_add(ad->conformant);
 
     ad->circle_progressbar =
         eext_circle_object_progressbar_add(ad->grid, ad->surface);
-    ;
     eext_circle_object_value_min_max_set(ad->circle_progressbar, 0, 100);
-    eext_circle_object_value_set(ad->circle_progressbar, 0);
+    eext_circle_object_value_set(ad->circle_progressbar, 100);
     elm_grid_pack(ad->grid, ad->circle_progressbar, 30, 35, 40, 10);
 
     ad->spinner = elm_spinner_add(ad->grid);
@@ -145,7 +149,7 @@ static void create_base_gui(appdata_s *ad) {
     eext_circle_object_spinner_angle_set(ad->circle_spinner, 6);
     eext_rotary_object_event_activated_set(ad->circle_spinner, EINA_TRUE);
     elm_spinner_wrap_set(ad->spinner, EINA_TRUE);
-    evas_object_show(ad->circle_spinner);
+    eext_circle_object_color_set(ad->circle_spinner, 0, 0, 0, 0);
     evas_object_show(ad->spinner);
 
     ad->label = elm_label_add(ad->grid);
