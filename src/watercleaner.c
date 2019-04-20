@@ -117,20 +117,6 @@ static void create_base_gui(appdata_s *ad) {
     elm_object_text_set(ad->time, t);
     evas_object_show(ad->time);
 
-    // ad->more_option = eext_more_option_add(ad->grid);
-    // elm_grid_pack(ad->grid, ad->more_option, 30, 45, 40, 10);
-    // Evas_Object *about_img = NULL;
-    // char img[100];
-    // strcat(img, app_get_resource_path());
-    // strcat(img, "/images/about.png");
-    // Eext_Object_Item *about = eext_more_option_item_append(ad->more_option);
-    // eext_more_option_item_part_text_set(about, "selector,main_text",
-    // "About"); eext_more_option_item_part_text_set(about, "selector,sub_text",
-    // "Info"); about_img = elm_image_add(ad->more_option);
-    // eext_more_option_item_part_content_set(about, "item,icon", about_img);
-    // elm_image_file_set(about_img, img, NULL);
-    // evas_object_show(ad->more_option);
-
     ad->surface = eext_circle_surface_conformant_add(ad->conformant);
 
     ad->circle_progressbar =

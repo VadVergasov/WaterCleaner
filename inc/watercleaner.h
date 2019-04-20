@@ -20,4 +20,4 @@
 #define PACKAGE "com.vadvergasov.watercleaner"
 #endif
 
-#endif /* __watercleaner_H__ */
+#endif
