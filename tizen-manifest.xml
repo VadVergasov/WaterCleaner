@@ -7,7 +7,7 @@
         <label>Water cleaner</label>
         <label xml:lang="en">Water cleaner</label>
         <label xml:lang="ru-ru">Очиститель воды</label>
-        <label xml:lang="by-by">Ачышчальнік вады</label>
+        <label xml:lang="be-by">Ачышчальнік вады</label>
         <icon>Logo.png</icon>
     </ui-application>
     <privileges>

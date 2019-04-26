@@ -1,4 +1,3 @@
 -Trying to make icon in Popup.
--Fixed progress bar.
--Catched trouble with certificates...
--Resized image.
+-Progress bar currently available only on emulator. There is a bug in Tizen on real Samsung devices.
+-Few minor fixes.
