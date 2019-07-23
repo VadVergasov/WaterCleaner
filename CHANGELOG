@@ -1,3 +1,4 @@
 -Trying to make icon in Popup.
--Progress bar currently available only on emulator. There is a bug in Tizen on real Samsung devices.
 -Few minor fixes.
+-Added sound of current system ringtone.
+-Now spinner is in focus, so no clicks on screen now.
