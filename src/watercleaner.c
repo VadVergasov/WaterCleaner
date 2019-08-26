@@ -186,11 +186,19 @@ static void create_base_gui(appdata_s *ad) {
     elm_grid_pack(ad->grid, ad->label, 35, 45, 30, 10);
     evas_object_show(ad->label);
 
+    char *version;
+    system_info_get_platform_string("http://tizen.org/feature/platform.version",
+                                    &version);
+
     char *button_text = i18n_get_text("Clean");
     ad->button = elm_button_add(ad->grid);
     elm_object_text_set(ad->button, button_text);
     elm_object_style_set(ad->button, "bottom");
-    elm_grid_pack(ad->grid, ad->button, 30, 90, 40, 10);
+    if (version[0] == '4') {
+        elm_grid_pack(ad->grid, ad->button, 30, 85, 40, 10);
+    } else {
+        elm_grid_pack(ad->grid, ad->button, 30, 90, 40, 10);
+    }
     evas_object_smart_callback_add(ad->button, "clicked", clicked_cb, ad);
     evas_object_show(ad->button);
     evas_object_show(ad->win);

@@ -1,4 +1,4 @@
 -Trying to make icon in Popup.
 -Few minor fixes.
--Added sound of current system ringtone.
--Now spinner is in focus, so no clicks on screen now.
+-Added check for Tizen Version to prevent incorrect UI in Tizen 4.
+

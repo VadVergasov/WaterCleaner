@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<manifest xmlns="http://tizen.org/ns/packages" api-version="2.3.2" package="com.vadvergasov.watercleaner" version="2.1.0">
-    <author email="vadim.vergasov2003@gmail.com">VadVergasov</author>
+<manifest xmlns="http://tizen.org/ns/packages" api-version="2.3.2" package="com.vadvergasov.watercleaner" version="2.2.0">
+    <author email="vadim.vergasov2003@gmail.com" href="vadvergasov.github.io">VadVergasov</author>
     <description>This app will help you to clean the watches after swimming.</description>
     <profile name="wearable"/>
     <ui-application appid="com.vadvergasov.watercleaner" exec="watercleaner" multiple="false" nodisplay="false" taskmanage="true" type="capp">

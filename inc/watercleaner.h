@@ -10,6 +10,7 @@
 #include <sound_manager.h>
 #include <stdio.h>
 #include <system_settings.h>
+#include <system_info.h>
 #include <time.h>
 #include <player.h>
 
